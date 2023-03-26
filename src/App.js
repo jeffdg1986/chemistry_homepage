@@ -18,6 +18,7 @@ export class Elements extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      styleType: 'greaterThanTen',
       name: '',
       atomic_number: '',
       symbol: '',
@@ -616,6 +617,14 @@ export class Elements extends Component {
       ] 
      }
   }
+  getStyleType = (e) =>{
+    if(e.target.value !== "fsadklfla"){
+      console.log('working')
+  }
+  else if(e.target.key >= 10){
+    console.log("workin")
+  }
+}
   getElement = (e) =>{
   const filteredData = this.state.info.filter(a => a.symbol === e.target.value);
   this.setState({
@@ -624,23 +633,112 @@ export class Elements extends Component {
     atomic_number: filteredData[0].atomic_Number
 
   })
-  console.log(filteredData[0],filteredData)
+  console.log(typeof filteredData[0].atomic_Number)
 }
   
   render() { 
-    
-    // const atomicSymbols = this.state.elements.map(y => y.Symbol);
+    // map buttonInfo for each horizontal row
+    // separate each function with a series of if statements where the atomic number range is used 
+    // the resulting buttons in each mapped if statement returns should be called below just like "indvidualButtons" is currently called
+    // each div calling the const can inside of it contain a ternary operator for the className.
+    // the styling can then be broken down into elemental types
+
     let buttonInfo = [];
     for(let j=0; j<this.state.info.length; j++){
       buttonInfo.push(this.state.info[j])
     };
    const individualButtons = buttonInfo.map(i => {
+    if(i.atomic_Number > 0 && i.atomic_Number <= 2){
       return(
-        <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className = "testClass">{i.symbol}</button>
-      )});
+        <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number < 10 ? 'lessThanTen' : 'greaterThanTen'}>{i.symbol}</button>
+      )
+    }
+      });
+      const rowTwo = buttonInfo.map(i =>{
+        if(i.atomic_Number > 2 && i.atomic_Number<= 10){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 10 ? 'lessThanTen' : 'greaterThanTen'}>{i.symbol}</button>
+            )
+        }
+        
+      });
+      const rowThree = buttonInfo.map(i =>{
+        if(i.atomic_Number > 10 && i.atomic_Number<= 18){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        
+      });
+      const rowFour = buttonInfo.map(i =>{
+        if(i.atomic_Number > 18 && i.atomic_Number<= 36){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        
+      });
+      const rowFive = buttonInfo.map(i =>{
+        if(i.atomic_Number > 36 && i.atomic_Number<= 54){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        
+      });
+      const rowSix = buttonInfo.map(i =>{
+        if(i.atomic_Number > 54 && i.atomic_Number<= 56){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        else if(i.atomic_Number > 71 && i.atomic_Number <= 86){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+          )
+        }
+        
+      });
+      const rowSeven = buttonInfo.map(i =>{
+        if(i.atomic_Number > 86 && i.atomic_Number<= 88){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        else if(i.atomic_Number > 103 && i.atomic_Number <= 118){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+          )
+        }
+        
+      });
+      const lanthanideSeries = buttonInfo.map(i =>{
+        if(i.atomic_Number > 57 && i.atomic_Number<= 71){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        
+      });
+      const actinideSeries = buttonInfo.map(i =>{
+        if(i.atomic_Number > 89 && i.atomic_Number<= 103){
+          return(
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            )
+        }
+        
+      });
     return (
       <div>
-        <section>{individualButtons}</section>
+        <div>{individualButtons}</div>
+        <div>{rowTwo}</div>
+        <div>{rowThree}</div>
+        <div>{rowFour}</div>
+        <div>{rowFive}</div>
+        <div>{rowSix}</div>
+        <div>{rowSeven}</div>
+        <div>{lanthanideSeries}</div>
+        <div>{actinideSeries}</div>
         <div className='output'>Symbol: {this.state.symbol}</div>
         <div className='output'>Name: {this.state.name}</div>
         <div className='output'>Atomic Number: {this.state.atomic_number}</div>
