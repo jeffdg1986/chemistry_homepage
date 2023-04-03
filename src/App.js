@@ -6,10 +6,10 @@ export function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>testing 124</div>
+        {/* <div>testing 124</div> */}
         <img src={peptidePic} alt='peptidePic' className='picture animated'/>
         
-        <h2>This is written within the app function which lies inside the root div. It is styled from index.css if there is no styling present within the app function</h2>
+        {/* <h2>This is written within the app function which lies inside the root div. It is styled from index.css if there is no styling present within the app function</h2> */}
       </header>
     </div>
   );
@@ -617,14 +617,7 @@ export class Elements extends Component {
       ] 
      }
   }
-  getStyleType = (e) =>{
-    if(e.target.value !== "fsadklfla"){
-      console.log('working')
-  }
-  else if(e.target.key >= 10){
-    console.log("workin")
-  }
-}
+
   getElement = (e) =>{
   const filteredData = this.state.info.filter(a => a.symbol === e.target.value);
   this.setState({
@@ -644,93 +637,121 @@ export class Elements extends Component {
     // the styling can then be broken down into elemental types
 
     let buttonInfo = [];
+    // stating for the length of the info array, aka encapsulates all elements listed in this.state.info
+    //  this loop takes adds value to the atomic number of each button by adding one to each loop.
     for(let j=0; j<this.state.info.length; j++){
       buttonInfo.push(this.state.info[j])
     };
-   const individualButtons = buttonInfo.map(i => {
+
+    
+    // eslint-disable-next-line
+   const rowOne = buttonInfo.map(i => {
+    // maps, essentially mean its goes through each element in an array and in this case returns a button with
+    // the following attributes: key, onClick, value, className
     if(i.atomic_Number > 0 && i.atomic_Number <= 2){
       return(
-        <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number < 10 ? 'lessThanTen' : 'greaterThanTen'}>{i.symbol}</button>
+        <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number === 1 ? 'atmOne' : 'atmTwo'}><div>{i.atomic_Number}</div>{i.symbol}</button>
       )
     }
       });
+      // eslint-disable-next-line
       const rowTwo = buttonInfo.map(i =>{
         if(i.atomic_Number > 2 && i.atomic_Number<= 10){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 10 ? 'lessThanTen' : 'greaterThanTen'}>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 4 ? 'atm3_4' : 'atm5_10'}><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
+      // eslint-disable-next-line
       const rowThree = buttonInfo.map(i =>{
         if(i.atomic_Number > 10 && i.atomic_Number<= 18){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 12 ? 'atm11_12' : 'atm13_18'}><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
+      // eslint-disable-next-line
       const rowFour = buttonInfo.map(i =>{
         if(i.atomic_Number > 18 && i.atomic_Number<= 36){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm19_36'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
+      // eslint-disable-next-line
       const rowFive = buttonInfo.map(i =>{
         if(i.atomic_Number > 36 && i.atomic_Number<= 54){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm37_54'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
+      // eslint-disable-next-line
       const rowSix = buttonInfo.map(i =>{
         if(i.atomic_Number > 54 && i.atomic_Number<= 56){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm54_56'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         else if(i.atomic_Number > 71 && i.atomic_Number <= 86){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm72_86'><div>{i.atomic_Number}</div>{i.symbol}</button>
           )
         }
         
       });
+      // eslint-disable-next-line
       const rowSeven = buttonInfo.map(i =>{
         if(i.atomic_Number > 86 && i.atomic_Number<= 88){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm87_88'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         else if(i.atomic_Number > 103 && i.atomic_Number <= 118){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm104_118'><div>{i.atomic_Number}</div>{i.symbol}</button>
           )
         }
         
       });
+      // eslint-disable-next-line
       const lanthanideSeries = buttonInfo.map(i =>{
         if(i.atomic_Number > 57 && i.atomic_Number<= 71){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm58_71'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
+      // eslint-disable-next-line
       const actinideSeries = buttonInfo.map(i =>{
         if(i.atomic_Number > 89 && i.atomic_Number<= 103){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='lessThanTen'>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm89_103'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
+      console.log(rowTwo)
     return (
       <div>
-        <div>{individualButtons}</div>
+      
+      <div className='table'>
+      <div className='output'> 
+      <div className='testFirstHalf'>        
+          <div>Symbol: {this.state.symbol}</div><br/>
+          <div>Name: {this.state.name}</div><br/>
+      </div>
+      <div className='testSecondHalf'>
+            <div>Atomic Mass(g/mol):{this.state.atomic_mass}</div><br/>
+            <div>Atomic Number: {this.state.atomic_number}</div><br/>
+            </div>
+        </div>
+        <div>{rowOne}</div>
         <div>{rowTwo}</div>
         <div>{rowThree}</div>
         <div>{rowFour}</div>
@@ -739,9 +760,7 @@ export class Elements extends Component {
         <div>{rowSeven}</div>
         <div>{lanthanideSeries}</div>
         <div>{actinideSeries}</div>
-        <div className='output'>Symbol: {this.state.symbol}</div>
-        <div className='output'>Name: {this.state.name}</div>
-        <div className='output'>Atomic Number: {this.state.atomic_number}</div>
+        </div>
       </div>
     )
   }

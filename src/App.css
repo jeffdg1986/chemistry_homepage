@@ -41,13 +41,130 @@ h2 {
   transition-property: background-color;
   transition-duration: 3s;
 }
-.greaterThanTen{
-  width: 50%;
-  color: red;
-  background-color: black;
-  margin: auto;
-  text-align: center;
+
+/* elements */
+.atmOne{
+  border-radius: 0%;
+  border: 2px solid black;
+  background-color: bisque;
+  position: relative;;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: calc(1/18*100%);
 }
-.lessThanTen{
-  background-color: white;
+.atmTwo{
+  border-radius: 0%;
+  border: 2px solid black;
+  background-color: bisque;
+  position: relative;
+  right: 0;
+  left: calc(16/18*100%);
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: calc(1/18*100%);
+  
+}
+.atm3_4, .atm11_12, .atm19_36, .atm37_54, .atm54_56, .atm87_88{
+  border-radius: 0%;
+  border: 2px solid orangered;
+  background-color: bisque;
+  position: relative;;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: calc(1/18*100%);
+}
+/* the easiest way to address the positioning problem is to encapsulate each set of buttons in a div and then use display: flex-start/ flex-end on each set of buttons */
+.atm5_10, .atm13_18{
+  border-radius: 0%;
+  border: 2px solid lightslategray;
+  background-color: bisque;
+  position: relative;
+  right: 0;
+  left: 55.5%;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: calc(1/18*100%);
+}
+.atm72_86, .atm104_118{
+  border-radius: 0%;
+  border: 2px solid orangered;
+  background-color: bisque;
+  position: relative;
+  right: 0;
+  left: calc(1/18*100%);
+  top: 0;
+  bottom: 0;
+  height: auto;
+  width: calc(1/18*100%);
+}
+.atm58_71{
+  /* actinides */
+  border-radius: 0%;
+  border: 2px solid orange;
+  background-color: bisque;
+  position: relative;
+  right: 0;
+  left: calc(2.5/18*100%);
+  top: 10px;
+  bottom: 0;
+  height: auto;
+  width: calc(1/18*100%);
+}
+.atm89_103{
+  /* lanthanides */
+  border-color: yellow;
+  border-radius: 0%;
+  background-color: bisque;
+  position: relative;
+  right: 0;
+  left: calc(2.18/18*100%);
+  top: 10px;
+  margin-bottom: 2%;
+  height: auto;
+  width: calc(1/18*100%);
+}
+
+/* periodic table as a whole */
+.table{
+  border: 4px solid purple;
+  position: relative;
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+}
+.output{
+  color: white;
+  background-color: rgb(38, 91, 100);
+  border: 2px solid black;
+  margin: 2%;
+  position:absolute;
+  width: calc(9.15/18*100%);
+  height: auto;
+  left: calc(2.1/18*100%);
+  top: 35px;
+  font-size: 14px;
+  display: flex;
+}
+.testFirstHalf{
+  color: whitesmoke;
+  width: 50%;
+  padding-right: 1%;
+  padding-left: 5%;
+  border: 2px ridge gray;
+  justify-content: flex-start;
+}
+.testSecondHalf{
+  padding-right: 1%;
+  padding-left: 5%;
+  color: whitesmoke;
+  width: 50%;
+  border: 2px groove gray;
+  justify-content: flex-end;
 }
