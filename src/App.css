@@ -4,23 +4,36 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .picture {
-    animation: peptide-pic-spin infinite 15s linear;
+    animation: peptide-pic-spin infinite 8s linear;
+    height: auto;
+    width: 5%;
+    right: 5px;
   }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: rgb(119, 95, 163);
+  height: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   font-size: calc(10px + 2vmin);
   color: white;
+
+}
+.companyName{
+  display: flex;
+  /* flex-direction: column; */
+  margin-right: 10px;
+  font-style: italic;
+  font-family: cursive;
 }
 
-.App-link {
-  color: #61dafb;
+.picture{
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+  margin-right: 5px;
 }
 
 @keyframes peptide-pic-spin {
@@ -31,16 +44,16 @@
     transform: rotate(360deg);
   }
 }
-h1{
+/* h1{
   color: aquamarine; 
 }
 h2 {
   color: magenta;
-}
-.animated {
+} */
+/* .animated {
   transition-property: background-color;
   transition-duration: 3s;
-}
+} */
 
 /* elements */
 .atmOne{
@@ -144,12 +157,12 @@ h2 {
   background-color: rgb(38, 91, 100);
   border: 2px solid black;
   margin: 2%;
-  position:absolute;
+  position: absolute;
   width: calc(9.15/18*100%);
   height: auto;
   left: calc(2.1/18*100%);
-  top: 35px;
-  font-size: 14px;
+  top: 20px;
+  font-size:14px;
   display: flex;
 }
 .testFirstHalf{
@@ -167,4 +180,9 @@ h2 {
   width: 50%;
   border: 2px groove gray;
   justify-content: flex-end;
+}
+.writeup{
+  border: 4px solid purple;
+  height: 150px;
+  margin: 15px 25%;;
 }
