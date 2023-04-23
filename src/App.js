@@ -20,7 +20,7 @@ export class Elements extends Component {
     super(props);
     this.state = {
       styleType: 'greaterThanTen',
-      name: 't',
+      name: '',
       atomic_number: '',
       symbol: '',
       atomic_mass: '',
@@ -735,7 +735,7 @@ export class Elements extends Component {
         }
       
       ],
-      data: '' 
+      data: 'Select an element' 
      }
   }
 
@@ -745,27 +745,24 @@ export class Elements extends Component {
     symbol: filteredData[0].symbol,
     name: filteredData[0].name,
     atomic_number: filteredData[0].atomic_Number,
-    atomic_mass: filteredData[0].atomic_Mass
-
+    atomic_mass: filteredData[0].atomic_Mass,
   })
-  console.log(typeof filteredData[0].atomic_Number)
-}
-componentDidMount(){
-  // let apiBuilder = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles=" + {this.state.name} + "&format=json&origin=*"
-  if(this.state.name !== ''){
+  console.log(typeof filteredData[0].atomic_Number);
+  let apiBuilder = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&titles=" + this.state.name + "&origin=*&formatversion=2&exchars=500";
   axios
-  .get("https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&titles=Iron&format=json&origin=*", {
+  .get(apiBuilder, {
     responseType: 'text'
   })
   .then((response) => {
     this.setState({ data: response.data });
     let wikipediaEntryElementLookup = this.state.name;
-    console.log(this.state.data.indexOf(wikipediaEntryElementLookup))
+    console.log(this.state.data.indexOf(wikipediaEntryElementLookup), apiBuilder)
   })
   .catch((error) => {
     console.log(error)
   })
-}} 
+}
+
   render() { 
     // map buttonInfo for each horizontal row
     // separate each function with a series of if statements where the atomic number range is used 
@@ -873,15 +870,14 @@ componentDidMount(){
         }
         
       });
-      const outputBox = () =>{
-        if(this.state.name !== ''){
-          console.log(this.state.data.substring(this.state.data.substring.indexOf('Iron'),1000)
-        )}
-        else console.log('empty')
-      }
+      // const outputBox = () =>{
+      //   if(this.state.name !== ''){
+      //     console.log(this.state.data.substring(this.state.data.substring.indexOf('Iron'),1000)
+      //   )}
+      //   else console.log('empty')
+      // }
     return (
       <div>
-      
       <div className='table'>
       <div className='output'> 
       <div className='testFirstHalf'>        
@@ -903,7 +899,7 @@ componentDidMount(){
         <div>{lanthanideSeries}</div>
         <div>{actinideSeries}</div>
         </div>
-        <div className='writeup'>{outputBox}</div>
+        <div className='writeup'>{this.state.name +" "+ this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>|{*}|]|"\n"/g, '').replace("&#160;",' ')}</div>
       </div>
     )
   }
