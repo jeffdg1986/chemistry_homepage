@@ -44,7 +44,7 @@ export class Elements extends Component {
           atomic_Mass: 7.0
         },
         {
-          name: 'Berylium',
+          name: 'Beryllium',
           atomic_Number: 4,
           symbol: 'Be',
           atomic_Mass: 9.012183
@@ -98,7 +98,7 @@ export class Elements extends Component {
           atomic_Mass: 24.305
         },
         {
-          name: 'Aluminum',
+          name: 'Aluminium',
           atomic_Number: 13,
           symbol: 'Al',
           atomic_Mass: 26.981538
@@ -350,7 +350,7 @@ export class Elements extends Component {
           atomic_Mass: 131.29
         },
         {
-          name: 'Cesium',
+          name: 'Caesium',
           atomic_Number: 55,
           symbol: 'Cs',
           atomic_Mass: 132.9054520
@@ -404,7 +404,7 @@ export class Elements extends Component {
           atomic_Mass: 151.964
         },
         {
-          name: 'Gadolinum',
+          name: 'Gadolinium',
           atomic_Number: 64,
           symbol: 'Gd',
           atomic_Mass: 157.2
@@ -747,16 +747,13 @@ export class Elements extends Component {
     atomic_number: filteredData[0].atomic_Number,
     atomic_mass: filteredData[0].atomic_Mass,
   })
-  console.log(typeof filteredData[0].atomic_Number);
-  let apiBuilder = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&titles=" + this.state.name + "&origin=*&formatversion=2&exchars=500";
+  let apiBuilder = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&titles=" + filteredData[0].name + "&origin=*&formatversion=2";
   axios
   .get(apiBuilder, {
     responseType: 'text'
   })
   .then((response) => {
     this.setState({ data: response.data });
-    let wikipediaEntryElementLookup = this.state.name;
-    console.log(this.state.data.indexOf(wikipediaEntryElementLookup), apiBuilder)
   })
   .catch((error) => {
     console.log(error)
@@ -854,7 +851,7 @@ export class Elements extends Component {
       });
       // eslint-disable-next-line
       const lanthanideSeries = buttonInfo.map(i =>{
-        if(i.atomic_Number > 57 && i.atomic_Number<= 71){
+        if(i.atomic_Number > 56 && i.atomic_Number<= 71){
           return(
             <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm58_71'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
@@ -863,19 +860,17 @@ export class Elements extends Component {
       });
       // eslint-disable-next-line
       const actinideSeries = buttonInfo.map(i =>{
-        if(i.atomic_Number > 89 && i.atomic_Number<= 103){
+        if(i.atomic_Number > 88 && i.atomic_Number<= 103){
           return(
             <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm89_103'><div>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
       });
-      // const outputBox = () =>{
-      //   if(this.state.name !== ''){
-      //     console.log(this.state.data.substring(this.state.data.substring.indexOf('Iron'),1000)
-      //   )}
-      //   else console.log('empty')
-      // }
+      // the newline in the replace function isn't being replaced
+      let resultingDescription = this.state.name + " " + this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>|{*}|]/g, '').replace(/\n/g, '')+ "...";
+
+  
     return (
       <div>
       <div className='table'>
@@ -899,7 +894,7 @@ export class Elements extends Component {
         <div>{lanthanideSeries}</div>
         <div>{actinideSeries}</div>
         </div>
-        <div className='writeup'>{this.state.name +" "+ this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>|{*}|]|"\n"/g, '').replace("&#160;",' ')}</div>
+        <div className='writeup'>{resultingDescription}</div>
       </div>
     )
   }
