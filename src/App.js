@@ -868,9 +868,11 @@ export class Elements extends Component {
         
       });
       // the newline in the replace function isn't being replaced
-      let resultingDescription = this.state.name + " " + this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>|{*}|]/g, '').replace(/\n/g, '')+ "...";
-
-  
+      let regexOne = this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>/g, '');
+      // messing around trying to find the escape characters
+      let regexTwo = regexOne.replace(/\[Aa-zZ]/ig, "cats");
+      let final = this.state.name + " " + regexTwo + "...";
+      
     return (
       <div>
       <div className='table'>
@@ -894,7 +896,7 @@ export class Elements extends Component {
         <div>{lanthanideSeries}</div>
         <div>{actinideSeries}</div>
         </div>
-        <div className='writeup'>{resultingDescription}</div>
+        <div className='writeup'>{final}</div>
       </div>
     )
   }
