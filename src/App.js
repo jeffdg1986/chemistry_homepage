@@ -868,10 +868,14 @@ export class Elements extends Component {
         
       });
       // the newline in the replace function isn't being replaced
-      let regexOne = this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>/g, '');
+      let regexOne = this.state.data.substring(this.state.data.indexOf('</b>'),1000).replace(/<[^>]+>/g, ' ');
       // messing around trying to find the escape characters
-      let regexTwo = regexOne.replace(/\[Aa-zZ]/ig, "cats");
-      let final = this.state.name + " " + regexTwo + "...";
+      let regexTwo = regexOne.replace(/\\n/g, " ");
+      let regexThree = regexTwo.replace(/<[Aa-zZ]+ [Aa-zZ]+=\\"[Aa-zZ]*/g, "");
+      // look at vanadium
+      let regexFour = regexThree.replace(/\\"/g, "\"");
+      let regexFive = regexFour.replace(/<li/g, "")
+      let final = this.state.name + " " + regexFive + "...";
       
     return (
       <div>
