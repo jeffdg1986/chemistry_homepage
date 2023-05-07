@@ -12,12 +12,14 @@
 }
 
 .App-header {
-  background-color: rgb(119, 95, 163);
+  background-color: rgb(54, 98, 106);
+  border-bottom: 4px ridge saddlebrown;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   font-size: calc(10px + 2vmin);
+  top: 200px;
   color: white;
 
 }
@@ -44,27 +46,24 @@
     transform: rotate(360deg);
   }
 }
-/* h1{
-  color: aquamarine; 
+.atmOne, .atmTwo, .atm3_4, .atm5_10, .atm13_18, .atm11_12, .atm19_36, .atm37_54, .atm54_56, .atm87_88, .atm72_86, .atm104_118, .atm89_103, .atm58_71{
+  height: 70px;
+  font-size: 20px;
+  font-weight: bolder;
 }
-h2 {
-  color: magenta;
-} */
-/* .animated {
-  transition-property: background-color;
-  transition-duration: 3s;
-} */
-
-/* elements */
+.atomicNumberStyling{
+  position: relative;
+  display: flex;
+  justify-content: left;
+  top: -10px;
+  font-size: 14px;
+  font-weight: lighter;
+}
 .atmOne{
   border-radius: 0%;
   border: 2px solid black;
   background-color: bisque;
-  position: relative;;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  height: auto;
+  position: relative;
   width: calc(1/18*100%);
 }
 .atmTwo{
@@ -72,11 +71,7 @@ h2 {
   border: 2px solid black;
   background-color: bisque;
   position: relative;
-  right: 0;
   left: calc(16/18*100%);
-  top: 0;
-  bottom: 0;
-  height: auto;
   width: calc(1/18*100%);
   
 }
@@ -88,7 +83,6 @@ h2 {
   left: 0;
   top: 0;
   bottom: 0;
-  height: auto;
   width: calc(1/18*100%);
 }
 /* the easiest way to address the positioning problem is to encapsulate each set of buttons in a div and then use display: flex-start/ flex-end on each set of buttons */
@@ -101,7 +95,6 @@ h2 {
   left: 55.5%;
   top: 0;
   bottom: 0;
-  height: auto;
   width: calc(1/18*100%);
 }
 .atm72_86, .atm104_118{
@@ -113,7 +106,6 @@ h2 {
   left: calc(1/18*100%);
   top: 0;
   bottom: 0;
-  height: auto;
   width: calc(1/18*100%);
 }
 .atm58_71{
@@ -126,7 +118,6 @@ h2 {
   left: calc(2.5/18*100%);
   top: 10px;
   bottom: 0;
-  height: auto;
   width: calc(1/18*100%);
 }
 .atm89_103{
@@ -139,51 +130,55 @@ h2 {
   left: calc(2.18/18*100%);
   top: 10px;
   margin-bottom: 2%;
-  height: auto;
   width: calc(1/18*100%);
 }
 
 /* periodic table as a whole */
 .table{
-  border: 4px solid purple;
   position: relative;
   padding-top: 2%;
   padding-left: 2%;
   padding-right: 2%;
   padding-bottom: 1%;
+  background-color:lightgray;
 }
 .output{
   color: white;
-  background-color: rgb(38, 91, 100);
-  border: 2px solid black;
-  margin: 2%;
+  background-color: rgb(54, 98, 106);
+  border: 4px ridge saddlebrown;
+  border-bottom: none;
   position: absolute;
-  width: calc(9.15/18*100%);
+  top: 17px;
+  width: calc(8.75/18*100%);
   height: auto;
-  left: calc(2.1/18*100%);
-  top: 20px;
-  font-size:14px;
+  left: calc(2.71/18*100%);
+  font-size: 14px;
   display: flex;
+  padding: 5px;
+  justify-content: space-evenly;
 }
-.testFirstHalf{
-  color: whitesmoke;
-  width: 50%;
-  padding-right: 1%;
-  padding-left: 5%;
-  border: 2px ridge gray;
-  justify-content: flex-start;
+
+.outputStylingSymbol{
+  width: 80px;
 }
-.testSecondHalf{
-  padding-right: 1%;
-  padding-left: 5%;
-  color: whitesmoke;
-  width: 50%;
-  border: 2px groove gray;
-  justify-content: flex-end;
+.outputStylingName{
+  width: 150px;
+}
+.outputStylingAtomicMass{
+  width: 210px;
+}
+.outputStylingAtomicNumber{
+  width: 150px;
 }
 .writeup{
-  border: 4px solid purple;
+  border: 4px groove saddlebrown;
   height: 150px;
   margin: 15px 25%;
-  padding: 2%;
+  padding: 10px;
+  color: white;
+  background-color: rgb(54, 98, 106);
+  position: absolute;
+  width: calc(8.4/18*100%);
+  right: calc(2.04/18*100%);
+  top: 40px;
 }

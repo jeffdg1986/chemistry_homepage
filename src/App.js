@@ -2,6 +2,7 @@ import './App.css';
 import peptidePic from './peptide.png';
 import React, { Component } from 'react';
 import axios from 'axios';
+// import chemicalBackground from "./chemical_background_1.jpg";
 
 export function App() {
   return (
@@ -781,7 +782,7 @@ export class Elements extends Component {
     // the following attributes: key, onClick, value, className
     if(i.atomic_Number > 0 && i.atomic_Number <= 2){
       return(
-        <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number === 1 ? 'atmOne' : 'atmTwo'}><div>{i.atomic_Number}</div>{i.symbol}</button>
+        <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number === 1 ? 'atmOne' : 'atmTwo'}><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
       )
     }
       });
@@ -789,7 +790,7 @@ export class Elements extends Component {
       const rowTwo = buttonInfo.map(i =>{
         if(i.atomic_Number > 2 && i.atomic_Number<= 10){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 4 ? 'atm3_4' : 'atm5_10'}><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 4 ? 'atm3_4' : 'atm5_10'}><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
@@ -798,7 +799,7 @@ export class Elements extends Component {
       const rowThree = buttonInfo.map(i =>{
         if(i.atomic_Number > 10 && i.atomic_Number<= 18){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 12 ? 'atm11_12' : 'atm13_18'}><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className={i.atomic_Number <= 12 ? 'atm11_12' : 'atm13_18'}><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
@@ -807,7 +808,7 @@ export class Elements extends Component {
       const rowFour = buttonInfo.map(i =>{
         if(i.atomic_Number > 18 && i.atomic_Number<= 36){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm19_36'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm19_36'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
@@ -816,7 +817,7 @@ export class Elements extends Component {
       const rowFive = buttonInfo.map(i =>{
         if(i.atomic_Number > 36 && i.atomic_Number<= 54){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm37_54'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm37_54'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
@@ -825,12 +826,12 @@ export class Elements extends Component {
       const rowSix = buttonInfo.map(i =>{
         if(i.atomic_Number > 54 && i.atomic_Number<= 56){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm54_56'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm54_56'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         else if(i.atomic_Number > 71 && i.atomic_Number <= 86){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm72_86'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm72_86'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
           )
         }
         
@@ -839,12 +840,12 @@ export class Elements extends Component {
       const rowSeven = buttonInfo.map(i =>{
         if(i.atomic_Number > 86 && i.atomic_Number<= 88){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm87_88'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm87_88'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         else if(i.atomic_Number > 103 && i.atomic_Number <= 118){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm104_118'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm104_118'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
           )
         }
         
@@ -853,7 +854,7 @@ export class Elements extends Component {
       const lanthanideSeries = buttonInfo.map(i =>{
         if(i.atomic_Number > 56 && i.atomic_Number<= 71){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm58_71'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm58_71'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
@@ -862,7 +863,7 @@ export class Elements extends Component {
       const actinideSeries = buttonInfo.map(i =>{
         if(i.atomic_Number > 88 && i.atomic_Number<= 103){
           return(
-            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm89_103'><div>{i.atomic_Number}</div>{i.symbol}</button>
+            <button key={i.atomic_Number} onClick={this.getElement} value={i.symbol} className='atm89_103'><div className='atomicNumberStyling'>{i.atomic_Number}</div>{i.symbol}</button>
             )
         }
         
@@ -880,16 +881,16 @@ export class Elements extends Component {
     return (
       <div>
       <div className='table'>
-      <div className='output'> 
-      <div className='testFirstHalf'>        
-          <div>Symbol: {this.state.symbol}</div><br/>
-          <div>Name: {this.state.name}</div><br/>
-      </div>
-      <div className='testSecondHalf'>
-            <div>Atomic Mass:<br/>{this.state.atomic_mass + ' (g/mol)'}</div><br/>
-            <div>Atomic Number: {this.state.atomic_number}</div><br/>
-            </div>
-        </div>
+      <table className='output'> 
+      <tr>        
+          <td className='outputStylingSymbol'>Symbol: {this.state.symbol}</td>
+          <td className='outputStylingName'>Name: {this.state.name}</td>
+          <td className='outputStylingAtomicMass'>Atomic Mass: {this.state.atomic_mass + ' (g/mol)'}</td>
+          <td className='outputStylingAtomicNumber'>Atomic Number: {this.state.atomic_number}</td>
+      </tr>
+        </table>
+        
+        <div className='writeup'>{final}</div>
         <div>{rowOne}</div>
         <div>{rowTwo}</div>
         <div>{rowThree}</div>
@@ -899,8 +900,8 @@ export class Elements extends Component {
         <div>{rowSeven}</div>
         <div>{lanthanideSeries}</div>
         <div>{actinideSeries}</div>
+
         </div>
-        <div className='writeup'>{final}</div>
       </div>
     )
   }
