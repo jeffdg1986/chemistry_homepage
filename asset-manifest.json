@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/chemistry_homepage/static/css/main.4f484b55.css",
+    "main.js": "/chemistry_homepage/static/js/main.c0c846e1.js",
+    "static/js/787.79081b35.chunk.js": "/chemistry_homepage/static/js/787.79081b35.chunk.js",
+    "index.html": "/chemistry_homepage/index.html",
+    "main.4f484b55.css.map": "/chemistry_homepage/static/css/main.4f484b55.css.map",
+    "main.c0c846e1.js.map": "/chemistry_homepage/static/js/main.c0c846e1.js.map",
+    "787.79081b35.chunk.js.map": "/chemistry_homepage/static/js/787.79081b35.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f484b55.css",
+    "static/js/main.c0c846e1.js"
+  ]
+}
