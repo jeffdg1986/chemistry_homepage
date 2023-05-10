@@ -20,7 +20,7 @@ export class Elements extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      styleType: 'greaterThanTen',
+      styleType: '',
       name: '',
       atomic_number: '',
       symbol: '',
